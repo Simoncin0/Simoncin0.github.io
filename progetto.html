@@ -3,71 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Progetto</title>
+    <title>Pagina del Progetto</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
             background-color: #eef1f7;
             text-align: center;
-            padding: 20px;
         }
         .container {
             max-width: 800px;
             background: white;
             padding: 20px;
-            margin: auto;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-left: 5px solid indigo;
+            margin: 0 auto;
         }
-        h1, h2 {
+        h1 {
             color: indigo;
         }
         img {
             width: 100%;
             max-width: 750px;
-            border-radius: 10px;
-            margin-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         }
         p {
-            text-align: justify;
             color: #333;
+            text-align: justify;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: indigo;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: darkslateblue;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Pagina del Progetto</h1>
-        <p>Questa è la pagina dedicata al progetto.</p>
-        <a href="index.html">Torna alla Home</a>
-        
-        <h2>Progetto Rete Aziendale</h2>
-        <p>Questo progetto rappresenta una rete aziendale configurata su Cisco Packet Tracer, suddivisa in VLAN per gestire al meglio i diversi reparti aziendali.</p>
-        
+        <h1>Progetto della Rete Aziendale</h1>
+        <p>Questa pagina presenta lo scenario della rete aziendale realizzata in Cisco Packet Tracer.</p>
+
         <h2>Scenario della Rete</h2>
-        <img src="image.png" alt="Scenario della rete aziendale">
-        
+        <img src="Scenario.png" alt="Scenario della rete aziendale">
+
         <h2>Caratteristiche della Rete</h2>
+        <p>La rete aziendale è suddivisa in tre VLAN per separare i dipartimenti:</p>
         <ul>
-            <li><strong>Router</strong>: ISR 4331</li>
-            <li><strong>Switch centrale</strong>: Cisco 2960</li>
-            <li><strong>Tre Access Point</strong> collegati a tre VLAN diverse:</li>
-            <ul>
-                <li>VLAN 10 - Amministrazione/IT</li>
-                <li>VLAN 20 - Finanza/HR</li>
-                <li>VLAN 30 - Servizio clienti/Reception</li>
-            </ul>
-            <li><strong>Dispositivi</strong>: 3 laptop collegati via WiFi agli Access Point</li>
+            <li><strong>VLAN 10</strong>: Amministrazione/IT</li>
+            <li><strong>VLAN 20</strong>: Finanza/HR</li>
+            <li><strong>VLAN 30</strong>: Servizio clienti/Reception</li>
         </ul>
+
+        <h2>Configurazione dei Dispositivi</h2>
+        <p>La rete è composta da un router principale collegato a uno switch centrale. Ogni dipartimento è connesso a un Access Point per la connettività wireless.</p>
         
         <h2>Servizi Implementati</h2>
         <ul>
-            <li>Configurazione delle VLAN per separare il traffico di rete</li>
-            <li>DHCP per assegnazione automatica degli IP</li>
-            <li>Firewall per la sicurezza della rete</li>
-            <li>NAT/PAT per l'accesso a internet</li>
-            <li>VPN per accesso remoto sicuro</li>
+            <li><strong>DHCP</strong>: Assegnazione automatica degli indirizzi IP.</li>
+            <li><strong>NAT/PAT</strong>: Traduzione degli indirizzi per l’accesso a internet.</li>
+            <li><strong>Routing Dinamico</strong>: Comunicazione tra i vari segmenti di rete.</li>
+            <li><strong>Firewall</strong>: Protezione della rete da accessi non autorizzati.</li>
+            <li><strong>VPN</strong>: Connessione remota sicura per i dipendenti.</li>
         </ul>
+
+        <a href="index.html" class="button">Torna alla Home</a>
     </div>
 </body>
 </html>
