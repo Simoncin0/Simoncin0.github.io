@@ -3,80 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina del Progetto</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            padding: 20px;
-            background-color: #eef1f7;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid indigo;
-            margin: 0 auto;
-        }
-        h1 {
-            color: indigo;
-        }
-        img {
-            width: 100%;
-            max-width: 750px;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
-        p {
-            color: #333;
-            text-align: justify;
-        }
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: indigo;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .button:hover {
-            background-color: darkslateblue;
-        }
-    </style>
+    <title>Progetto Rete Aziendale</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Networking - Rete Aziendale</h1>
-        <p>Questa pagina presenta lo scenario della rete aziendale realizzata in Cisco Packet Tracer.</p>
+    <h1>Networking - Rete Aziendale</h1>
+    <img src="Scenario.png" alt="Scenario della rete aziendale" width="800">
+    
+    <h2>Descrizione della Rete</h2>
+    <p>Lo scenario rappresenta una rete aziendale strutturata per supportare tre principali dipartimenti:</p>
+    <ul>
+        <li><strong>Amministrazione/IT</strong> (VLAN 10)</li>
+        <li><strong>Finanza/HR</strong> (VLAN 20)</li>
+        <li><strong>Servizio Clienti/Reception</strong> (VLAN 30)</li>
+    </ul>
+    <p>La rete è progettata con un'infrastruttura centralizzata che include un <strong>router principale (Router1)</strong>, 
+        un <strong>switch di distribuzione (2960-24TT)</strong> e tre <strong>Access Point (AP)</strong> per la connessione wireless.</p>
 
-        <h2>Scenario della Rete</h2>
-        <img src="Scenario.png" alt="Scenario della rete aziendale">
+    <h2>1. Dispositivi e Collegamenti</h2>
+    <h3>Router</h3>
+    <p><strong>Router1 (ISR 4331)</strong></p>
+    <ul>
+        <li>Funziona come gateway principale della rete aziendale.</li>
+        <li>Gestisce il routing tra le VLAN e l'accesso ai servizi di rete.</li>
+        <li>Collegato direttamente allo switch di distribuzione.</li>
+    </ul>
 
-        <h2>Caratteristiche della Rete</h2>
-        <p>La rete aziendale è suddivisa in tre VLAN per separare i dipartimenti:</p>
-        <ul>
-            <li><strong>VLAN 10</strong>: Amministrazione/IT</li>
-            <li><strong>VLAN 20</strong>: Finanza/HR</li>
-            <li><strong>VLAN 30</strong>: Servizio clienti/Reception</li>
-        </ul>
+    <h3>Switch di Distribuzione</h3>
+    <p><strong>Switch 2960-24TT (centro)</strong></p>
+    <ul>
+        <li>Punto centrale della rete a cui sono collegati gli Access Point dei vari dipartimenti.</li>
+        <li>Gestisce la separazione delle VLAN e il traffico tra i diversi reparti.</li>
+    </ul>
 
-        <h2>Configurazione dei Dispositivi</h2>
-        <p>La rete è composta da un router principale collegato a uno switch centrale. Ogni dipartimento è connesso a un Access Point per la connettività wireless.</p>
-        
-        <h2>Servizi Implementati</h2>
-        <ul>
-            <li><strong>DHCP</strong>: Assegnazione automatica degli indirizzi IP.</li>
-            <li><strong>NAT/PAT</strong>: Traduzione degli indirizzi per l’accesso a internet.</li>
-            <li><strong>Routing Dinamico</strong>: Comunicazione tra i vari segmenti di rete.</li>
-            <li><strong>Firewall</strong>: Protezione della rete da accessi non autorizzati.</li>
-            <li><strong>VPN</strong>: Connessione remota sicura per i dipendenti.</li>
-        </ul>
+    <h3>Access Point e Client Wireless</h3>
+    <p>La rete utilizza Access Point (AP) per la connettività wireless, collegati allo switch principale:</p>
+    <ul>
+        <li><strong>AP-Amministrazione (VLAN 10)</strong>: Connette i dispositivi dell'Amministrazione/IT (Laptop0).</li>
+        <li><strong>AP-Finanza (VLAN 20)</strong>: Connette il dipartimento Finanza/HR (Laptop1).</li>
+        <li><strong>AP-Reception (VLAN 30)</strong>: Gestisce la connettività per il Servizio Clienti (Laptop2).</li>
+    </ul>
 
-        <a href="index.html" class="button">Torna alla Home</a>
-    </div>
+    <h2>2. Configurazione delle VLAN</h2>
+    <table border="1">
+        <tr>
+            <th>VLAN ID</th>
+            <th>Nome</th>
+            <th>Dispositivi connessi</th>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Amministrazione/IT</td>
+            <td>AP-Amministrazione, Laptop0</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>Finanza/HR</td>
+            <td>AP-Finanza, Laptop1</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>Servizio Clienti</td>
+            <td>AP-Reception, Laptop2</td>
+        </tr>
+    </table>
+
+    <h2>3. Servizi Implementati</h2>
+    <h3>DHCP</h3>
+    <p>Il router fornisce indirizzi IP dinamici ai dispositivi wireless tramite DHCP. Ogni VLAN ha un intervallo di IP assegnato.</p>
+
+    <h3>Routing Inter-VLAN</h3>
+    <p>Configurato sul router per permettere la comunicazione tra i dipartimenti mantenendo il traffico segmentato.</p>
+
+    <h3>Sicurezza della Rete</h3>
+    <ul>
+        <li>Implementazione di autenticazione <strong>WPA2</strong> sugli Access Point per proteggere la rete Wi-Fi.</li>
+        <li>Firewall per filtrare il traffico non autorizzato tra le VLAN e verso l'esterno.</li>
+    </ul>
+
+    <h2>4. Benefici della Rete</h2>
+    <ul>
+        <li><strong>Separazione del traffico</strong> tra i dipartimenti per maggiore sicurezza e prestazioni.</li>
+        <li><strong>Gestione centralizzata</strong> grazie allo switch principale.</li>
+        <li><strong>Flessibilità della connessione wireless</strong>, evitando cablaggi complessi.</li>
+        <li><strong>Scalabilità</strong>, permettendo di aggiungere nuovi dispositivi senza impattare la rete esistente.</li>
+    </ul>
+
+    <br>
+    <a href="index.html">Torna alla Home</a>
 </body>
 </html>
